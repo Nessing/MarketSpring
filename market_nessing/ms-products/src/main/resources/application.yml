@@ -1,0 +1,23 @@
+server:
+  port: 0
+  servlet:
+    context-path: /market
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:marketdb;MODE=PostgreSQL
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+      path: /db-console
+
+jwt:
+  secret: kjfgeih23827asuhwxn281kan
