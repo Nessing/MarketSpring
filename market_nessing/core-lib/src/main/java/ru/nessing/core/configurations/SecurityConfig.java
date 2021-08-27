@@ -20,7 +20,7 @@ import ru.nessing.core.interfaces.ITokenService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    ITokenService iTokenService;
+    JWTAuthenticationFilter filter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .and()
-                .addFilterBefore(new JWTAuthenticationFilter(iTokenService), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean

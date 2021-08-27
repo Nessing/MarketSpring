@@ -6,6 +6,7 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisHash;
 import org.springframework.stereotype.Service;
 import ru.nessing.core.interfaces.ITokenService;
 import ru.nessing.core.models.UserInfo;
@@ -16,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@RedisHash("token")
 public class JWTTokenService implements ITokenService {
 
     @Value("$(jwt.secret)")

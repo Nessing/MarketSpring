@@ -2,11 +2,7 @@ package ru.nessing.auth.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.nessing.auth.dtos.AuthRequestDto;
 import ru.nessing.auth.dtos.AuthResponseDto;
 import ru.nessing.auth.dtos.SignUpRequestDto;
@@ -14,7 +10,9 @@ import ru.nessing.auth.entities.User;
 import ru.nessing.auth.services.UserService;
 import ru.nessing.core.interfaces.ITokenService;
 import ru.nessing.core.models.UserInfo;
+import ru.nessing.core.repositories.RedisRepository;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +25,9 @@ public class AuthController {
 
     @Autowired
     private ITokenService iTokenService;
+
+    @Autowired
+    private RedisRepository redisRepository;
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
@@ -49,5 +50,11 @@ public class AuthController {
                 .build();
         String token = iTokenService.generateToken(userInfo);
         return new AuthResponseDto(token);
+    }
+
+    @GetMapping("/logout")
+    public Boolean logout(@RequestHeader("Authorization") String token) {
+        redisRepository.putToken(token, Duration.ofHours(1));
+        return true;
     }
 }

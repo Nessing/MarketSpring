@@ -8,20 +8,14 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>ms-products</artifactId>
+    <artifactId>eureka-service</artifactId>
     <version>0.0.1</version>
-    <name>ms-products</name>
+    <name>eureka-service</name>
 
     <dependencies>
         <dependency>
-            <groupId>ru.nessing</groupId>
-            <artifactId>core-lib</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
 
