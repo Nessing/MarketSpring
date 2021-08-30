@@ -35,6 +35,9 @@
 
         <!--  Eureka  -->
         <module>eureka-service</module>
+
+        <!--  Gateway  -->
+        <module>gateway-server</module>
     </modules>
 
     <dependencies>
