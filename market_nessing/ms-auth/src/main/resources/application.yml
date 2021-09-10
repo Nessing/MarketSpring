@@ -1,0 +1,14 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: ms-auth
+
+jwt:
+  secret: kjfgeih23827asuhwxn281kan
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URL:http://localhost:8761/eureka}
