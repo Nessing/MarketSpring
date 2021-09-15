@@ -8,10 +8,12 @@ spring:
     config:
       server:
         git:
-          uri: adf
+          uri: https://github.com/Nessing/MarketSpring
+          default-label: master
           username:
           password:
           clone-on-start: true
+          search-paths: configs
 
 eureka:
   client:

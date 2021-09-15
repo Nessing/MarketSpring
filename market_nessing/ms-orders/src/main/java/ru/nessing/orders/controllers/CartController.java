@@ -3,10 +3,10 @@ package ru.nessing.orders.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
-import ru.geekbrains.core.interfaces.ITokenService;
-import ru.geekbrains.core.models.UserInfo;
-import ru.geekbrains.orders.services.CartService;
-import ru.geekbrains.routing.dtos.CartDto;
+import ru.nessing.core.interfaces.ITokenService;
+import ru.nessing.core.models.UserInfo;
+import ru.nessing.orders.services.CartService;
+import ru.nessing.routing.dtos.CartDto;
 
 import java.util.UUID;
 
