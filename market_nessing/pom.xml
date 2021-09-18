@@ -38,6 +38,10 @@
 
         <!--  Gateway  -->
         <module>gateway-server</module>
+        <module>front-server</module>
+
+        <!--  Front-Server  -->
+        <module>front-server</module>
     </modules>
 
     <dependencies>

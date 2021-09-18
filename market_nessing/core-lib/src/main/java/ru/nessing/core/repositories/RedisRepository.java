@@ -10,7 +10,7 @@ import java.time.Duration;
 public class RedisRepository {
 
     @Autowired
-    private RedisTemplate<String, Integer> tokenRedisTemplate;
+    private RedisTemplate<String, Object> tokenRedisTemplate;
 
     public void putToken(String token, Duration duration) {
         tokenRedisTemplate.opsForValue().set("token:" + token, 1, duration);
